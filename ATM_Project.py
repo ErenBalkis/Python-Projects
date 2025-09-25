@@ -1,110 +1,110 @@
 import sys
 
-hesap_Bilgileri = [
+account_info = [
     {
-        "ad":"Hasan Yılmaz",
-        "hesapNo":12345,
-        "bakiye":2500,
-        "ekHesap":1500,
-        "username":"hasanyilmaz",
-        "password":"1234"
+        "name": "Hasan Yılmaz",
+        "account_no": 12345,
+        "balance": 2500,
+        "overdraft": 1500,
+        "username": "hasanyilmaz",
+        "password": "1234"
     },
     {
-        "ad":"Eren Balkış",
-        "hesapNo":98765,
-        "bakiye":1600,
-        "ekHesap":400,
-        "username":"erenbalkis",
-        "password":"9876"
+        "name": "Eren Balkış",
+        "account_no": 98765,
+        "balance": 1600,
+        "overdraft": 400,
+        "username": "erenbalkis",
+        "password": "9876"
     },
     {
-        "ad":"Hüseyin Çakmak",
-        "hesapNo":23456,
-        "bakiye":2000,
-        "ekHesap":500,
-        "username":"huseyincakmak",
-        "password":"5678"
+        "name": "Hüseyin Çakmak",
+        "account_no": 23456,
+        "balance": 2000,
+        "overdraft": 500,
+        "username": "huseyincakmak",
+        "password": "5678"
     },
     {
-        "ad":"Salih Korkmaz",
-        "hesapNo":67891,
-        "bakiye":5000,
-        "ekHesap":2500,
-        "username":"salihkorkmaz",
-        "password":"9123"
+        "name": "Salih Korkmaz",
+        "account_no": 67891,
+        "balance": 5000,
+        "overdraft": 2500,
+        "username": "salihkorkmaz",
+        "password": "9123"
     }
 ]
 
-def menu (hesap):
+def display_menu(account):
     print()
-    print(f"Merhaba {hesap["ad"]}")
-    print("Bakiye Sorgulama için 1'i,")
-    print("Para çekme için 2'yi,")
-    print("Para yatırma için 3'ü,")
-    islem = input("Çıkış yapmak için 0'ı tuşlayınız: ")
+    print(f"Hello {account['name']}")
+    print("Press 1 for Balance Inquiry,")
+    print("Press 2 for Withdrawals,")
+    print("Press 3 for Deposits,")
+    operation = input("Press 0 to exit: ")
 
-    if islem == "1":
-        bakiyeSorgula(hesap)
-    elif islem == "2":
-        paraCekme(hesap)
-    elif islem == "3":
-        paraYatirma(hesap)
-    elif islem == "0":
-        print("\t\t İYİ GÜNLER GÖRÜŞMEK ÜZERE!")
+    if operation == "1":
+        check_balance(account)
+    elif operation == "2":
+        withdraw_money(account)
+    elif operation == "3":
+        deposit_money(account)
+    elif operation == "0":
+        print("\t\t HAVE A GOOD DAY, SEE YOU SOON!")
         sys.exit()
     else:
-        print("Yanlış giriş:")
-    menu(hesap)
+        print("Invalid input:")
+    display_menu(account)
 
-def bakiyeSorgula(hesap):
+def check_balance(account):
     print()
-    print(f"Hesabınızda bulunan bakiye: {hesap["bakiye"]}")
-    print(f"Hesabınızda bulunan ek hesap bakiyesi: {hesap["ekHesap"]}")
+    print(f"Your current balance: {account['balance']}")
+    print(f"Your overdraft balance: {account['overdraft']}")
 
-def paraCekme(hesap):
+def withdraw_money(account):
     print()
-    cekim_Mitari = int(input("Çekmek istediğiniz para miktarını giriniz:"))
+    withdrawal_amount = int(input("Enter the amount you want to withdraw: "))
 
-    if(hesap["bakiye"]>=cekim_Mitari):
-        hesap["bakiye"] -= cekim_Mitari
-        print("Paranızı almayı unutmayın!")
+    if account["balance"] >= withdrawal_amount:
+        account["balance"] -= withdrawal_amount
+        print("Don't forget to take your money!")
     else:
-        toplam = hesap["bakiye"] + hesap["ekHesap"]
-        if toplam >= cekim_Mitari:
-            print("Bakiye Yetersiz!")
-            ekHesapIzni = input("Ek hesap kullanılsın mı?(e/h)")
-            if ekHesapIzni == "e":
-                kullanilacakMiktar = cekim_Mitari - hesap["bakiye"]
-                hesap["bakiye"] = 0
-                hesap["ekHesap"] -= kullanilacakMiktar
-                print("Paranızı alabilirsiniz!")
+        total = account["balance"] + account["overdraft"]
+        if total >= withdrawal_amount:
+            print("Insufficient balance!")
+            overdraft_permission = input("Should the overdraft be used? (y/n)")
+            if overdraft_permission == "y":
+                amount_to_use = withdrawal_amount - account["balance"]
+                account["balance"] = 0
+                account["overdraft"] -= amount_to_use
+                print("You can take your money!")
             else:
-                print("Üzgünüz Bakiyeniz Yetersiz!")
-        else :
-            print("Üzgünüz Bakiyeniz Yetersiz!")
+                print("Sorry, your balance is insufficient!")
+        else:
+            print("Sorry, your balance is insufficient!")
 
-def paraYatirma(hesap):
+def deposit_money(account):
     print()
-    yatirmaMiktari = int(input("Yatırmak istediğiniz para miktarını giriniz:"))
-    if yatirmaMiktari > 0:
-        hesap["bakiye"] += yatirmaMiktari
-        print("Para hesabınıza eklendi.")
+    deposit_amount = int(input("Enter the amount you want to deposit: "))
+    if deposit_amount > 0:
+        account["balance"] += deposit_amount
+        print("Money has been added to your account.")
     else:
-        print("\t\t HATALI GİRİŞ!")
+        print("\t\t INVALID ENTRY!")
 
 def login():
-    username = input("username: ")
-    password = input("password: ")
+    username = input("Username: ")
+    password = input("Password: ")
 
-    isLoggedIn = False
+    is_logged_in = False
 
-    for hesap in hesap_Bilgileri:
-        if hesap["username"] == username and hesap["password"] == password:
-            isLoggedIn = True
-            menu(hesap)
+    for account in account_info:
+        if account["username"] == username and account["password"] == password:
+            is_logged_in = True
+            display_menu(account)
             break
 
-    if not(isLoggedIn):
-        print("username ya da parola yanlış!")
+    if not is_logged_in:
+        print("Username or password is incorrect!")
 
 login()
