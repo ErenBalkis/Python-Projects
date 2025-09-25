@@ -1,11 +1,3 @@
-# In Türkiye, license plate regulations are generally as follows:
-# The license plate format is "XX ABC 123" or "XX A 1234."
-# The first two digits are the provincial license plate code and indicate the province where the vehicle is registered.
-# The number of letters in the middle generally ranges from 1 to 3. A minimum of 1 letter and a maximum of 3 letters can be present.
-# The number of digits following each letter varies from 2 to 4.
-# In the license plate system, letters are generally distributed according to the province and district where the vehicle is registered.
-# Only letters from the Latin alphabet are used, and some letters, such as Q, W, and X, are not used.
-
 from colorama import init, Fore, Style
 
 # Start Colorama
@@ -66,7 +58,6 @@ def main():
             print(Fore.GREEN + "✅ Valid License Plate" + Style.RESET_ALL)
         else:
             print(Fore.RED + "❌ Invalid License Plate" + Style.RESET_ALL)
-
 
 
 if __name__== "__main__":
