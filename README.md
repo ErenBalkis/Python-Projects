@@ -4,7 +4,7 @@ This repository contains various Python projects. Each project was developed to 
 
 ---
 
-<h3 align="center" style="color:#2A9D8F;"> 🏦 ATM Project (Bankamatik_Projesi.py)</h3>
+<h3 align="center" style="color:#2A9D8F;"> 🏦 ATM Project (ATM_Project.py)</h3>
 
 **Explanation:**
 This project simulates an ATM where registered users can access their accounts. The project allows users to log in with their username and password to perform basic banking transactions such as deposits, withdrawals, and balance inquiries.
@@ -14,12 +14,12 @@ This project simulates an ATM where registered users can access their accounts. 
 2. Open the terminal and navigate to the directory where the file is located.
 3. Run the following command:
    ```bash
-   python Bankamatik_Projesi.py
+   python ATM_Project.py
 
 
 ---
 
-<h3 align="center" style="color:#F4A261;"> 💾 File Application (Dosya_Uygulamasi.py)</h3>
+<h3 align="center" style="color:#F4A261;"> 💾 File Application (File_Application.py)</h3>
 
 **Explanation:**
 This application captures students' personal and grade information and saves it in a file called sinav_notlari.txt. Users can also read grades from this file and calculate their averages to determine letter grades. The calculated results are saved in the sonclar.txt file.
@@ -29,7 +29,7 @@ This application captures students' personal and grade information and saves it 
 2. Open a terminal and navigate to the directory containing the file.
 3. Run the following command:
    ```bash
-   python Dosya_Uygulamasi.py
+   python File_Application.py
    
 
 ---
