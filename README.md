@@ -34,7 +34,7 @@ This application captures students' personal and grade information and saves it 
 
 ---
 
-<h3 align="center" style="color:#E76F51;"> 🚗 Türkiye Plate Validator (TürkiyePlateValidator.py)</h3>
+<h3 align="center" style="color:#E76F51;"> 🚗 Türkiye Plate Validator (TurkeyPlateValidator.py)</h3>
 
 **Explanation:**
 This project is a tool that checks the validity of vehicle license plates in Türkiye according to specific rules. The program checks the format of the license plate entered by the user, along with the rules for letters and numbers. The Colorama library was used to enhance the visual output.
@@ -57,4 +57,4 @@ This project is a tool that checks the validity of vehicle license plates in Tü
 4. Open the terminal and navigate to the directory where the file is located.
 5. Run the following command:
    ```bash
-   python TürkiyePlateValidator.py
+   python TurkeyPlateValidator.py
