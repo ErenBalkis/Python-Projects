@@ -1,4 +1,4 @@
-# Python-Projects
+# Python-Projects 🐍
 
 This repository contains various Python projects. Each project was developed to solve a different problem or demonstrate specific functionality.
 
