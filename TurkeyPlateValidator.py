@@ -13,9 +13,9 @@ def is_valid(plate_parts):
     if len(plate_parts) != 3:
         return False
     
-    return (first_two_digits(plate_parts[0]) and  # İlk iki rakamı kontrol et
-            middle_letters(plate_parts[1]) and    # Ortadaki harfleri kontrol et
-            last_four_digits(plate_parts[2]))     # Son dört rakamı kontrol et
+    return (first_two_digits(plate_parts[0]) and  # Check the first two digits
+            middle_letters(plate_parts[1]) and    # Check the middle letters
+            last_four_digits(plate_parts[2]))     # Check the last four digits
 
 
 def first_two_digits(code):
